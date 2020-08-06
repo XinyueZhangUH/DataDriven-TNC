@@ -1,4 +1,4 @@
-function [] = solveTNC(filenames, selected_file, privacy)
+function [FM_results, K_results, U_results] = solveTNC(filenames, selected_file, privacy)
 
 %initialize
 load(filenames)
@@ -71,16 +71,19 @@ for flag = 1:3
 
     end
     if flag == 1
-        out_file = ['result/', selected_file, '_FM_', privacy, '.mat'];
-        save(out_file, 'Final_results')
+%         out_file = ['result/', selected_file, '_FM_', privacy, '.mat'];
+%         save(out_file, 'Final_results')
+        FM_results = Final_results;
     end
     if flag == 2
-        out_file = ['result/', selected_file, '_K_', privacy, '.mat'];
-        save(out_file, 'Final_results')
+%         out_file = ['result/', selected_file, '_K_', privacy, '.mat'];
+%         save(out_file, 'Final_results')
+        K_results = Final_results;
     end
     if flag == 3
-        out_file = ['result/', selected_file, '_U_', privacy, '.mat'];
-        save(out_file, 'Final_results')
+%         out_file = ['result/', selected_file, '_U_', privacy, '.mat'];
+%         save(out_file, 'Final_results')
+        U_results = Final_results;
     end
 end
 end
