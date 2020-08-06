@@ -1,4 +1,5 @@
-load('data/Xian1.mat')
+function [optimal] = cal_opt(file1,file2)
+load(file1)
 cost_1 = 10;
 cost_2 = cost_1 * 1.8;
 revenue = 20;
@@ -13,7 +14,7 @@ options = sdpsettings('solver','gurobi');
 sol_master1 = optimize(Constraints,-Objective,options);
 optimal1 = value(Objective);
 
-load('data/Xian2.mat')
+load(file2)
 cost_1 = 10;
 cost_2 = cost_1 * 1.8;
 revenue = 20;
@@ -28,3 +29,4 @@ options = sdpsettings('solver','gurobi');
 sol_master2 = optimize(Constraints,-Objective,options);
 optimal2 = value(Objective);
 optimal = optimal1 + optimal2;
+end
