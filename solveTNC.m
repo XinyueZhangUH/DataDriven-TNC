@@ -1,11 +1,11 @@
-function [FM_results, K_results, U_results] = solveTNC(filenames, selected_file, privacy)
+function [FM_results, K_results, U_results] = solveTNC(filenames, selected_file, privacy, iterations)
 
 %initialize
 load(filenames)
 historical_data = [5,8,10,15,20,25,30,40,50]; % number of historical data
 Results = zeros(size(historical_data));
 err_bar = zeros(size(historical_data));
-iterations = 50;
+%iterations = 50;
 
 for flag = 1:3
     % Choose metric
