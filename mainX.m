@@ -1,6 +1,6 @@
 clc
 clear all
-iterations = 50;
+iterations = 5;
 selected_file1 = 'Xian1';
 privacy = 'noP';
 filename1_noP = ['data/', selected_file1, '.mat'];
@@ -28,7 +28,7 @@ filename2_eps15 = ['data/', selected_file2, '_', privacy '.mat'];
 [FM_X2_ep15,K_X2_ep15,U_X2_ep15] = solveTNC(filename2_eps15, selected_file2, privacy, iterations);
 
 X_optimal = cal_opt(filename1_noP, filename2_noP);
-[r, r_err] = rBase(filename1_noP, filename2_noP);
+[r, r_err] = rBase(filename1_noP, filename2_noP, iterations);
 
 %% Set values
 X_FM_noP = FM_X1(1,:) + FM_X2(1,:);
